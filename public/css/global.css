@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+:root{
+  --color-primary:#fde7a5;
+  --color-secundary:#fcbd01;
+  --color-efect:rgb(255, 115, 0);
+}
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  user-select: none;
+}
+main {
+  min-height: 70vh;
+}

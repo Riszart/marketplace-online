@@ -1,0 +1,11 @@
+{
+  "name": "marketplace-online",
+  "version": "1.0.0",
+  "description": "proyecto de tienda online",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "riszart daryl <22.r.d.v.c.12@gmail.com>",
+  "license": "MIT"
+}

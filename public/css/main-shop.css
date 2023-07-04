@@ -1,0 +1,204 @@
+
+/*------------main--------------*/
+.container {
+  width: 80%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  margin: 0 auto 0 auto;
+}
+
+.sub-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.sub-header .close-btn {
+  font-size: 30px;
+  color: var(--color-efect);
+  cursor: pointer;
+}
+.sub-header .title {
+  line-height: 1;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.sub-header .title span {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: lowercase;
+  color: var(--color-efect);
+}
+
+.products-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 24%;
+  margin: 0 0.5% 20px 0.5%;
+  padding: 15px 20px;
+  border: 1px solid var(--color-efect);
+  border-radius: 5px;
+  transition: all ease-in-out 300ms;
+}
+.product-unit.is-active {
+  border: none;
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1);
+  z-index: 1000;
+  background: white;
+  animation: tada ease-in-out 1000ms forwards;
+}
+.product-unit.stop-animation {
+  animation-play-state: pause;
+}
+.product-unit:hover {
+  border: none;
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1);
+  z-index: 1000;
+  background: white;
+}
+.product-unit .box {
+  height: 200px;
+}
+.product-unit .box img{
+  max-height: 100%;
+  max-width: 100%;
+}
+.product-unit .heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.product-unit .heading span:last-child{
+  color: var(--color-secundary);
+}
+.product-unit .heading span:last-child svg{
+  width: 25px;
+  height: 25px;
+}
+.product-unit .heading span {
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+/* .product-unit .box {
+  width: 100%;
+  margin: 10px 0px;
+  transition: all ease-in-out 300ms;
+  background-image: url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTXPoeXWgsnGXHUV281dC1GJF95aPYl-F0WcQ1ZG5UJ4P3xc9n81Q);
+  background-size: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+} */
+/* .product-unit .box:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+} */
+.product-unit .info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.2;
+  font-size: 14px;
+  font-weight: 600;
+}
+.product-unit .info .icon {
+  cursor: pointer;
+  display: block;
+  font-size: 30px;
+  color: var(--color-efect);
+}
+.product-unit .info .icon:active {
+  color: var(--color-secundary);
+}
+.color-heart {
+  color: red !important;
+}
+
+
+.notification-product__add {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background-color: var(--color-primary);
+  border: solid var(--color-efect) 3px;
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin: 5px 5px;
+}
+.notification-product__add img{
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
+}
+.notification-product__add div{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+.notification-product__add div small{
+  font-weight: 700;
+}
+.notification-product__add div p{
+  font-size: 12px;
+  color: var(--color-efect);
+  font-weight: 700;
+  display: flex;
+  gap: 10px;
+
+}
+/*------------media--------------*/
+
+@media (max-width: 1200px) {
+  .product-unit {
+    width: 31.33%;
+    margin: 0px 0.5% 20px 0.5%;
+  }
+}
+@media (max-width: 640px) {
+  .product-unit {
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+
+  .navigation {
+    display: none;
+  }
+}
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  10%, 20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}

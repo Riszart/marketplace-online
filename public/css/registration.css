@@ -1,0 +1,60 @@
+.container {
+  margin: auto;
+  width: 50vw;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.container h1 {
+  text-transform: capitalize;
+}
+.container small {
+  display: block;
+  margin: 20px 0;
+}
+.conatiner-sign_up {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+
+}
+.conatiner-sign_up > div {
+  display: flex;
+  flex-direction: column;
+}
+.conatiner-sign_up > div label {
+  font-size: 14px;
+  text-transform: capitalize;
+  padding-bottom: 10px;
+}
+.conatiner-sign_up > div input {
+  width: 80%;
+  border: none;
+  border-bottom: solid var(--color-primary) 3px;
+}
+.conatiner-sign_up > div input::placeholder {
+  text-transform: capitalize;
+  padding-left: 10px;
+}
+.conatiner-sign_up > div input:focus {
+  outline: none;
+  border-bottom: solid var(--color-efect) 3px;
+}
+.conatiner-sign_up button {
+  width: 50%;
+  text-transform: capitalize;
+  height: 50px;
+  border: none;
+  background-color: var(--color-primary);
+  border-radius: 10px;
+  font-size: 24px;
+}
+
+.conatiner-sign_up button:focus {
+  background-color: var(--color-efect);
+}
+.conatiner-sign_up article div input {
+  cursor: pointer;
+}
+.conatiner-sign_up article div label {
+  font-size: 12px;
+}

@@ -1,0 +1,118 @@
+.container-cart__buy {
+  padding: 50px 100px;
+  max-width: 1300px;
+  margin: auto;
+}
+/*  grid*/
+.grid-contend {
+  display: grid;
+  grid-template-columns: 3fr 1.3fr;
+}
+.flex-contend {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; 
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.header-iten_cart {
+  gap: 1px;
+  width: 100%;
+  padding: 5px;
+  background-color: var(--color-secundary);
+  text-transform: capitalize;
+}
+.content-items_cart-shop {
+  margin: 15px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.price-quantity {
+  align-items: center;
+}
+.price-quantity input{
+  height: 25px;
+  width: 40px;
+}
+.cart-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.cart-info div a{
+  color: var(--color-secundary);
+  cursor: pointer;
+}
+.cart-info img{
+  height: 80px;
+  width: 80px;
+}
+.price-total__buy {
+  border-top: solid var(--color-efect) 5px;
+  font-size: 14px;
+  background-color: var(--color-primary);
+}
+.total-buy {
+  background-color: var(--color-secundary);
+}
+
+.cart-void {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-secundary);
+  text-transform: capitalize;
+}
+.cart-void svg{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 30px;
+}
+
+.contend-buttom__buy button{
+  cursor: pointer;
+  margin-top: 30px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: var(--color-secundary);
+}
+.contend-buttom__buy button:hover {
+  background-color: var(--color-efect);
+} 
+.contend-buttom__buy button:active {
+  background-color: var(--color-primary);
+} 
+.contend-buy__pay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.842);
+  z-index: 1500;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
+.buy-pay__press {
+  position: relative;
+  height: 250px;
+  width: 500px;
+  background-color: var(--color-primary);
+}

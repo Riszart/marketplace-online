@@ -1,0 +1,18 @@
+.inactive {
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+}
+.overflow-hide{
+  overflow: hidden;
+}
+.conatiner-sign_up > div .input-content {
+  border-bottom: solid var(--color-efect) 3px;
+}
+form .change-background {
+  background-color: var(--color-secundary);
+  cursor: pointer;
+}
+form div .error {
+  border-bottom: solid red 2px;
+}
