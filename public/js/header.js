@@ -72,6 +72,7 @@ document.addEventListener('keydown', (event)=>{
 	if(event.code === "Escape")inactiveClass()
 })
 window.addEventListener('hashchange',()=>{
+	console.log('header')
 	const hostLocal = location.pathname.split('/')
 	hostLocal.forEach(element=>{
 		if(element[hostLocal.length-1] !== "shop-products.html"){
