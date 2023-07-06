@@ -3,8 +3,7 @@ function loadCard(){
   contentItemsCartShop.innerText = ''
   const cardBuy = Object.values(localData().cartShop)
   cardBuy.forEach(element =>{
-    // console.log(element)
-
+    console.log(element)
     const article = document.createElement('article')
     article.classList.add('grid-contend')
     
@@ -16,14 +15,14 @@ function loadCard(){
     const p =  document.createElement('p')
     p.textContent = element.title
     const small = document.createElement('small')
-    small.textContent = `$ ${element.price.toFixed(2)}`
+    small.textContent = `$ ${element.price}`//.toFixed(2)
     const br = document.createElement('br')
     const a = document.createElement('a')
     a.textContent = 'Remove'
-    console.log(element.id)
+    console.log(element.id_product)
     a.addEventListener('click',()=>{
       const riszshopp = localData()
-      riszshopp.cartShop[element.id] = undefined
+      riszshopp.cartShop[element.id_product] = undefined
       localStorage.setItem('riszshopp', JSON.stringify(riszshopp))
       countItems('card')
       loadCard()
@@ -43,7 +42,7 @@ function loadCard(){
     spanSing.textContent = '$ '
     const spanCount = document.createElement('span')
     spanCount.classList.add('price-product')
-    spanCount.textContent = element.price.toFixed(2)
+    spanCount.textContent = element.price//.toFixed(2)
 
     pLeft.append(spanSing,spanCount)
     divLeft.append(input,pLeft)
@@ -52,7 +51,7 @@ function loadCard(){
     contentItemsCartShop.appendChild(article)
     input.addEventListener('change',()=>{
       if(input.value <= 0){
-        input.value = 0
+        input.value = 1
       }
       spanCount.textContent = element.price * input.value
       total()

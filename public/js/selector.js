@@ -45,3 +45,17 @@ const taxSpan = document.querySelector('.tax span')
 const totalSpan = document.querySelector('.total span')
 const shippingCost = document.querySelector('.shipping-cost span')
 const discount = document.querySelector('.discount span')
+
+//product 
+
+const containerProduct__title = document.querySelector('.container-product__title')
+const containerProduct__imageFigureImg = document.querySelector('.container-product__image figure img')
+const containerProduct__detailDescription = document.querySelector('.container-product__detail-description')
+const priceProduct__count = document.querySelector('.price-product__count')
+const priceProduct__category = document.querySelector('.price-product__category')
+const priceProduct__ratio = document.querySelector('.price-product__ratio')
+const priceProduct__buy = document.querySelector('.price-product__buy')
+const containerProduct__btn = document.querySelector('.container-product__btn')
+const containerProduct__more = document.querySelector('.container-product__more')
+const productSectionH3Span = document.querySelector('.product-section-h3 span')
+const containerPrice__countInput = document.querySelector('.container-price__count input')

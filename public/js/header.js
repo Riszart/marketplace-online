@@ -1,7 +1,7 @@
 "use strict";
 logInAccept.disabled = true
 
-const API_URL = 'https://fakestoreapi.com';
+const API_URL = "https://gist.githubusercontent.com/Riszart/658221509a6f250f19e768f04dbf4946/raw/ba051dcfe05fe80a00c4424bc02663d67ac3b275/riszshopp-data.json"
 
 showNav.addEventListener('click', () => {
 	containerCategory.classList.toggle('inactive');
@@ -24,16 +24,21 @@ loginUser.addEventListener('click',()=>{
 })
 
 
-async function getAll(extend) {
-	const {data} = await axios.get(`${API_URL}/${extend}`)
+async function getAll() {
+	const {data} = await axios.get(API_URL)
+console.log(data)
+
 	return data
 }
+console.log(getAll())
 async function getCategory(){
-	const data = await getAll('products/categories')
-	data.forEach(element=>{
+	const {categories} = await getAll()	//category
+	categories.forEach(({name})=>{
 		const li = document.createElement('li')
-		li.addEventListener('click', ()=>{location.hash = `${decodeURIComponent(element)}`})
-		li.textContent = element
+		li.addEventListener('click', ()=>{
+			location.hash = `${decodeURIComponent(name)}`
+		})
+		li.textContent = name
 		containerCategoryUl.appendChild(li)
 	})
 }
@@ -85,8 +90,8 @@ logoPrincipal.addEventListener('click', ()=>{
 // log in
 logInAccept.addEventListener('click',async (event)=>{
 	event.preventDefault()
-	let data = await getAll('users')
-	const identify = data.find(element=>element.email === emailLogIn.value)
+	let {users} = await getAll()
+	const identify = users.find(element=>element.email === emailLogIn.value)
 	if(typeof identify === 'object'){
 		emailLogIn.classList.remove('error')
 		if(identify.password === passwordLogIn.value){
@@ -103,7 +108,6 @@ logInAccept.addEventListener('click',async (event)=>{
 	}else{
 		emailLogIn.classList.add('error')
 	}
-	console.log(data)
 })
 containerLogIn.addEventListener('input',()=>{
 	if(containerLogIn.checkValidity()){
@@ -119,7 +123,7 @@ if(JSON.parse(localStorage.getItem('riszshopp'))._user){
 }
 function complete(){
 	if(typeof (JSON.parse(localStorage.getItem('riszshopp'))._user.username) !== 'string')return
-	if(typeof (JSON.parse(localStorage.getItem('riszshopp'))._user.id) !== 'number')return
+	if(typeof (JSON.parse(localStorage.getItem('riszshopp'))._user._id) !== 'number')return
 	const {username} = JSON.parse(localStorage.getItem('riszshopp'))._user
 	const {email} = JSON.parse(localStorage.getItem('riszshopp'))._user
 	loginUser.remove()
@@ -144,8 +148,14 @@ function complete(){
 	liThree.textContent = 'profile'
 	const liFour = document.createElement('li')
 	liFour.textContent = 'setting'
+	const liFive = document.createElement('li')
+	liFive.textContent = 'sign out'
+	liFive.addEventListener('click', ()=>{
+		localStorage.clear()
+		location.reload()
+	})
 
-	ul.append(liThree,liFour)
+	ul.append(liThree,liFour,liFive)
 	settingUser.appendChild(ul)
 }
 complete()

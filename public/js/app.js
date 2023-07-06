@@ -2,9 +2,9 @@
 
 const a = Object.keys(localData().favorite)
 async function showProduct(itemShow){
-	const data = await getAll('products')
+	const {products} = await getAll()
 	productsWrapper.innerHTML=''
-	data.forEach((element)=>{
+	products.forEach((element)=>{
 		if(element.category == itemShow || itemShow === 'all'){
 			const article = document.createElement('article');
 			article.classList.add('product-unit');
@@ -14,16 +14,16 @@ async function showProduct(itemShow){
 			spanPrice.textContent = `$${element.price}`
 			const spanFavorite = document.createElement('span')
 			const favoriteCheck = Object.keys(localData().favorite)
-			favoriteCheck.forEach(item=>{if(
-				item == element.id)spanFavorite.classList.add('color-heart')
+			favoriteCheck.forEach(item=>{
+				if(item == element.id_product)spanFavorite.classList.add('color-heart')
 			})
 			spanFavorite.addEventListener('click', ()=>{
 				const riszshopp = localData()
-				if(!riszshopp.favorite[element.id]){
-					riszshopp.favorite[element.id] = element
+				if(!riszshopp.favorite[element.id_product]){
+					riszshopp.favorite[element.id_product] = element
 					spanFavorite.classList.add('color-heart')
 				}else{
-					riszshopp.favorite[element.id] = undefined
+					riszshopp.favorite[element.id_product] = undefined
 					spanFavorite.classList.remove('color-heart')
 				}
 				localStorage.setItem('riszshopp', JSON.stringify(riszshopp))
@@ -36,6 +36,9 @@ async function showProduct(itemShow){
 	
 			const divBox = document.createElement('div')
 			divBox.classList.add('box')
+			divBox.addEventListener('click',()=>{
+				window.open(`${location.origin}/public/html/product.html#${element.id_product}`)
+			})
 			const img = document.createElement('img')
 			img.setAttribute('src', element.image)
 			divBox.appendChild(img)
@@ -49,12 +52,11 @@ async function showProduct(itemShow){
 			spanCard.addEventListener('click', ()=>{
 				notificationProductAdd(element)
 				const riszshopp = localData()
-				if(!riszshopp.cartShop[element.id]){
-					riszshopp.cartShop[element.id] = element
+				if(!riszshopp.cartShop[element.id_product]){
+					riszshopp.cartShop[element.id_product] = element
 				}
 				localStorage.setItem('riszshopp', JSON.stringify(riszshopp))
 				countItems('card')
-				
 			})
 			spanCard.innerHTML = `<i class="fa fa-shopping-cart"></i>`
 			divInfo.append(p,spanCard)
@@ -86,7 +88,6 @@ function notificationProductAdd(product){
 	document.addEventListener('scroll', scroll)
 
 	function scroll(){
-		console.log(mainEsc.getBoundingClientRect().top)
 		if(mainEsc.getBoundingClientRect().top > 0){
 			article.style.top = '55px' 
 		}
@@ -95,10 +96,10 @@ function notificationProductAdd(product){
 		}
 	}
 	scroll()
-	// setTimeout(()=>{
-	// 	article.remove()
-	// 	document.removeEventListener('scroll',scroll)
-	// },2000)
+	setTimeout(()=>{
+		article.remove()
+		document.removeEventListener('scroll',scroll)
+	},2000)
 }
 
 window.addEventListener('hashchange', changeHash,false)

@@ -10,22 +10,22 @@ dataMark.forEach(element=>{
   containerShopLogo.appendChild(article)
 })
 async function getCategoryIndex(){
-	const data = await getAll('products/categories')
-	data.forEach(element=>{
+	const {categories} = await getAll()
+	categories.forEach(element=>{
     const article = document.createElement('article')
     article.classList.add('item-shop')
     const img = document.createElement('img')
-    img.setAttribute('src', `${imageCategory[element]}`)
+    img.setAttribute('src', `${element.imge_category}`)
     const p  = document.createElement('p')
-    p.innerText = element
+    p.innerText = element.name
     article.append(img,p)
     containerCategoryLogo.appendChild(article)
 	})
 }
 async function showProduct(){
-	const data = await getAll('products')
+	const {products} = await getAll()
   let count = 1
-	data.forEach((element)=>{
+	products.forEach((element)=>{
     if(count <= 5){
       const article = document.createElement('article');
       article.classList.add('products-index__show');
