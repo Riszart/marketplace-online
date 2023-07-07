@@ -86,3 +86,8 @@ function total(){
   totalSpan.textContent = (Number(tax) + Number(priceSub)+ Number(discountCount)+ Number(Shipping)).toFixed(2)
 }
 loadCard()
+
+contendButtom__buy.addEventListener('click', ()=>{
+  containerEnd_proyect.classList.remove('inactive')
+  body.classList.add('overflow-hide')
+})

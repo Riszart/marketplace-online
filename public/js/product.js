@@ -17,29 +17,16 @@ async function getProductIs(){
             localStorage.setItem('riszshopp', JSON.stringify(riszshopp))
             countItems('card')
       })
-      showProducts(element.category)
+      showProductRelase(element.category)
     }
   })
 }
+let count = 0
 
 getProductIs()
-async function showProducts(section){
+async function showProductRelase(category){
 	const {products} = await getAll()
-  let count = 1
-products.forEach((element)=>{
-    if(element.category == section)
-    if(count <= 5){
-      const article = document.createElement('article');
-      article.classList.add('products-index__show');
-      const item = `
-      <section class="products-index__image"><img src="${element.image}" alt=""></section>
-      <section class="products-index__mark"><p></p></section>
-      <section class="products-index__name"><p>${element.title}</p></section>
-      <section class="products-index__price"><span>$</span><span>${element.price}</span></section>
-      `;
-      article.innerHTML = item;
-      containerProduct__more.appendChild(article);
-      count++
-    }
+  products.forEach((element)=>{
+    sectionProduct(containerProduct__more,element,category)
 	})
 }

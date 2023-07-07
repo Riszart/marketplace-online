@@ -9,6 +9,7 @@ dataMark.forEach(element=>{
   article.append(img,p)
   containerShopLogo.appendChild(article)
 })
+
 async function getCategoryIndex(){
 	const {categories} = await getAll()
 	categories.forEach(element=>{
@@ -22,24 +23,46 @@ async function getCategoryIndex(){
     containerCategoryLogo.appendChild(article)
 	})
 }
+
 async function showProduct(){
 	const {products} = await getAll()
-  let count = 1
-	products.forEach((element)=>{
+  let count = 0
+  products.forEach((element)=>{
     if(count <= 5){
-      const article = document.createElement('article');
-      article.classList.add('products-index__show');
-      const item = `
-      <section class="products-index__image"><img src="${element.image}" alt=""></section>
-      <section class="products-index__mark"><p></p></section>
-      <section class="products-index__name"><p>${element.title}</p></section>
-      <section class="products-index__price"><span>$</span><span>${element.price}</span></section>
-      `;
-      article.innerHTML = item;
-      containerProductItems.appendChild(article);
-      count++
-    }
+			const article = document.createElement('article')
+			article.classList.add('products-index__show')
+			const sectionImg = document.createElement('section')
+			sectionImg.classList.add('products-index__image')
+			const img = document.createElement('img')
+			img.setAttribute('src', element.image)
+			img.addEventListener('click', ()=>{
+				goProductDetail(element.id_product)
+			})
+			sectionImg.appendChild(img)
+
+			const sectionName = document.createElement('section')
+			sectionName.classList.add('products-index__name')
+			const pName = document.createElement('p')
+			pName.textContent = element.title
+			sectionName.appendChild(pName)
+
+			const sectionPrice = document.createElement('section')
+			sectionPrice.classList.add('products-index__price')
+			sectionPrice.innerHTML = `<span>$</span><span>${element.price}</span>`
+			
+			article.append(sectionImg,sectionName,sectionPrice)
+			containerProductItems.appendChild(article)
+			count++
+		}
 	})
 }
 showProduct()
 getCategoryIndex()
+
+
+infoClick.addEventListener('click',()=>{
+	infoText.classList.remove('hide-component')
+})
+infoClose.addEventListener('click',()=>{
+	infoText.classList.add('hide-component')
+})

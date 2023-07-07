@@ -67,6 +67,7 @@
   background: white;
 }
 .product-unit .box {
+  cursor: pointer;
   height: 200px;
 }
 .product-unit .box img{

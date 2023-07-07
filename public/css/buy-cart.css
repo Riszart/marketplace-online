@@ -116,3 +116,39 @@ input[type="number"] {
   width: 500px;
   background-color: var(--color-primary);
 }
+
+.container-end_proyect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.89);
+  z-index: 2000;
+
+}
+.end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 500px;
+  padding: 25px 0;
+}
+.end p {
+  text-transform: capitalize;
+}
+.end h3 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.end > p > a {
+  color: blue;
+  text-transform: lowercase;
+  font-weight: 700;
+}

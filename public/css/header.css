@@ -106,6 +106,7 @@ header {
   right: 0;
   width: 200px;
   background-color: var(--color-primary);
+  z-index: 250;
 }
 .count-user {
   width: 100%;
@@ -136,7 +137,11 @@ header {
   margin-bottom: 10px;
   padding: 5px;
   border-left: solid transparent 5px;
-
+}
+.user-style a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .user-style:hover {
   background-color: var(--color-secundary);
@@ -220,6 +225,7 @@ header {
   width: 210px;
   background-color: var(--color-primary);
   margin-top: 3px;
+  z-index: 250;
 }
 .container-category > p {
   display: block;
@@ -364,4 +370,12 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.container-promo__items{ 
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url(/public/img/letras-neon-planas-cyber-monday_52683-74503.jpg);
+  background-size: contain;
 }

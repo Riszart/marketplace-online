@@ -26,11 +26,9 @@ loginUser.addEventListener('click',()=>{
 
 async function getAll() {
 	const {data} = await axios.get(API_URL)
-console.log(data)
-
 	return data
 }
-console.log(getAll())
+
 async function getCategory(){
 	const {categories} = await getAll()	//category
 	categories.forEach(({name})=>{
@@ -49,6 +47,7 @@ function localData(){
 	}
 	return JSON.parse(localStorage.getItem('riszshopp'))
 }
+
 function countItems(items){
 	const riszshopp = localData()
 	if(items === 'favorite'){
@@ -58,6 +57,7 @@ function countItems(items){
 		figureCount.innerText = Object.values(riszshopp.cartShop).length
 	}
 }
+
 function inactiveClass(){
 	containerCategory.classList.add('inactive')
 	settingUser.classList.add('inactive');
@@ -71,8 +71,8 @@ mainEsc.addEventListener('click', ()=>{inactiveClass()})
 document.addEventListener('keydown', (event)=>{
 	if(event.code === "Escape")inactiveClass()
 })
+
 window.addEventListener('hashchange',()=>{
-	console.log('header')
 	const hostLocal = location.pathname.split('/')
 	hostLocal.forEach(element=>{
 		if(element[hostLocal.length-1] !== "shop-products.html"){
@@ -119,9 +119,7 @@ containerLogIn.addEventListener('input',()=>{
     logInAccept.classList.remove('change-background')
   }
 })
-if(JSON.parse(localStorage.getItem('riszshopp'))._user){
 
-}
 function complete(){
 	if(typeof (JSON.parse(localStorage.getItem('riszshopp'))._user.username) !== 'string')return
 	if(typeof (JSON.parse(localStorage.getItem('riszshopp'))._user._id) !== 'number')return
@@ -160,3 +158,63 @@ function complete(){
 	settingUser.appendChild(ul)
 }
 complete()
+
+function goProductDetail(id_product){
+	const urlProduct = location.pathname.split('/')
+	if(urlProduct[urlProduct.length-1] === 'index.html'){
+		urlProduct.pop()
+		urlProduct.push('html')
+	}else {
+		urlProduct.pop()
+	}
+	window.open(`${location.origin}${urlProduct.join("/")}/product.html#${id_product}`)
+}
+
+function sectionProduct(conatiner,element,section){
+	if(section == element.category){
+		if(count <= 5){
+			const article = document.createElement('article')
+			article.classList.add('products-index__show')
+			const sectionImg = document.createElement('section')
+			sectionImg.classList.add('products-index__image')
+			const img = document.createElement('img')
+			img.setAttribute('src', element.image)
+			img.addEventListener('click', ()=>{
+				goProductDetail(element.id_product)
+			})
+			sectionImg.appendChild(img)
+
+			const sectionName = document.createElement('section')
+			sectionName.classList.add('products-index__name')
+			const pName = document.createElement('p')
+			pName.textContent = element.title
+			sectionName.appendChild(pName)
+
+			const sectionPrice = document.createElement('section')
+			sectionPrice.classList.add('products-index__price')
+
+			const divPrice = document.createElement('div')
+			divPrice.innerHTML = `<span>$</span><span>${element.price}</span>`
+
+			const divCart = document.createElement('span')
+			divCart.classList.add('icon')
+			divCart.addEventListener('click', ()=>{
+				const riszshopp = localData()
+				if(!riszshopp.cartShop[element.id_product]){
+					riszshopp.cartShop[element.id_product] = element
+				}
+				localStorage.setItem('riszshopp', JSON.stringify(riszshopp))
+				countItems('card')
+			})
+			divCart.innerHTML = `<i class="fa fa-shopping-cart"></i>`
+
+			sectionPrice.append(divPrice, divCart)
+			
+			article.append(sectionImg,sectionName,sectionPrice)
+			conatiner.appendChild(article)
+			count++
+		}
+	}
+}
+
+//----------------------

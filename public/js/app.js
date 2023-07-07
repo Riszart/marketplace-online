@@ -37,10 +37,7 @@ async function showProduct(itemShow){
 			const divBox = document.createElement('div')
 			divBox.classList.add('box')
 			divBox.addEventListener('click',()=>{
-				const urlProduct = location.pathname.split('/')
-				urlProduct.pop()
-				console.log(`${location.origin}${urlProduct.join("/")}/product.html#${element.id_product}`)
-				window.open(`${location.origin}${urlProduct.join("/")}/product.html#${element.id_product}`)
+				goProductDetail(element.id_product)
 			})
 			const img = document.createElement('img')
 			img.setAttribute('src', element.image)
