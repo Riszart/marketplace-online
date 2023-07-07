@@ -14,10 +14,9 @@
 .container-promo__main {
   width: 100%;
   height: 500px;
-  background-image: url(/public/img/mark/online.jpg);
+  background-image: url(../img/mark/online.jpg);
   background-size: contain;
 }
-
 .container-product {
   width: 100%;
   display: flex; 
@@ -74,7 +73,7 @@
   height: 80px;
   margin-top: 50px;
   border-radius: 25px;
-  background-image: url(/public//img/promo.jpg);
+  background-image: url(../img/promo.jpg);
   background-position: center;
   background-size: contain;
   border: solid var(--color-secundary) 2px;

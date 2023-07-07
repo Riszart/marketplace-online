@@ -376,6 +376,6 @@ header {
   top: 0;
   width: 100%;
   height: 100px;
-  background-image: url(/public/img/letras-neon-planas-cyber-monday_52683-74503.jpg);
+  background-image: url("../img/letras-neon-planas-cyber-monday_52683-74503.jpg");
   background-size: contain;
 }
