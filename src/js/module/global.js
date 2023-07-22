@@ -27,9 +27,13 @@ export function countItems(items){
 
 export function navGlobal(){
   window.addEventListener('hashchange',()=>{
-    const hostLocal = location.pathname
-      if(hostLocal !== "/shop.html"){
-        window.open(`${location.origin}/shop.html${location.hash}`,'_self')
+    const hostLocal = location.pathname.split('/')
+		console.log(`${location.pathname}`)
+      if(hostLocal[hostLocal.length-1] !== "/shop.html"){
+				hostLocal.pop()
+				hostLocal.push('shop.html')
+				let newLocation  = `${location.origin}${hostLocal.join('/')}${location.hash}`
+        window.open(newLocation,'_self')
       }
   })
 
