@@ -1,39 +1,47 @@
-const dataMark = [
+import samsungImg from '../../img/mark/samsung.png'
+import appleImg from '../../img/mark/apple.jpg'
+import adidasImg from '../../img/mark/adidas.png'
+import intelImg from '../../img/mark/intel.png'
+import lenovoImg from '../../img/mark/lenovo.png'
+import nikeImg from '../../img/mark/nike.webp'
+import motorolaImg from '../../img/mark/motorola.png'
+
+export const dataMark = [
   {
     image:'https://www.joyeriadiamond.com/image/cache/catalog/logodiamondsanmiguel-350x200.png',
     name:'diamond',
   },
   {
-    image:'../public/img/mark/samsung.png',
+    image:`${samsungImg}`,
     name:'sansung',
   },
   {
-    image:'../public/img/mark/apple.jpg',
+    image:`${appleImg}`,
     name:'apple',
   },
   {
-    image:'../public/img/mark/adidas.png',
+    image:`${adidasImg}`,
     name:'adidas',
   },
   {
-    image:'../public/img/mark/intel.png',
+    image:`${intelImg}`,
     name:'intel',
   },
   {
-    image:'../public/img/mark/lenovo.png',
+    image:`${lenovoImg}`,
     name:'lenovo',
   },
   {
-    image:'../public/img/mark/nike.webp',
+    image:`${nikeImg}`,
     name:'nike',
   },
   {
-    image:'../public/img/mark/motorola.png',
+    image:`${motorolaImg}`,
     name:'motorola',
   },
 ]
 
-const imageCategory = {
+export const imageCategory = {
   "electronic":'https://motorolaus.vtexassets.com/arquivos/garage-power-single-family-image.png',
   "jewelery":'https://pandoraperu.vtexassets.com/arquivos/ids/180382-800-auto?v=638010322377470000&width=800&height=auto&aspect=true',
   "men's clothing":'https://thegolfsquare.com/8242-large_default/eu-full-zip-lined-pullover-navy-jersey-hombre.jpg',

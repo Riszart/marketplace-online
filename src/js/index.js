@@ -1,4 +1,39 @@
 "use strict"
+
+import "../css/global.css"
+import "../css/header.css"
+import "../css/main.css"
+import "../css/footer.css"
+import "../css/change.css"
+import {dataMark} from './module/data'
+import {index,info,user} from './module/selector'
+import {getAll,countItems,navGlobal,localData} from './module/global'
+import {getCategory,complete,navHeader} from './module/header'
+import {loginModule} from './module/login'
+
+//global
+localData()
+navGlobal()
+
+// header
+navHeader()
+getCategory()
+complete()
+
+//login
+loginModule()
+
+// index
+countItems('favorite')
+countItems('card')
+
+info.infoClick.addEventListener('click',()=>{
+	info.infoText.classList.remove('hide-component')
+})
+info.infoClose.addEventListener('click',()=>{
+	info.infoText.classList.add('hide-component')
+})
+
 dataMark.forEach(element=>{
   const article = document.createElement('article')
   article.classList.add('item-shop')
@@ -7,7 +42,7 @@ dataMark.forEach(element=>{
   const p  = document.createElement('p')
   p.innerText = element.name
   article.append(img,p)
-  containerShopLogo.appendChild(article)
+  index.containerShopLogo.appendChild(article)
 })
 
 async function getCategoryIndex(){
@@ -20,7 +55,7 @@ async function getCategoryIndex(){
     const p  = document.createElement('p')
     p.innerText = element.name
     article.append(img,p)
-    containerCategoryLogo.appendChild(article)
+    index.containerCategoryLogo.appendChild(article)
 	})
 }
 
@@ -51,7 +86,7 @@ async function showProduct(){
 			sectionPrice.innerHTML = `<span>$</span><span>${element.price}</span>`
 			
 			article.append(sectionImg,sectionName,sectionPrice)
-			containerProductItems.appendChild(article)
+			index.containerProductItems.appendChild(article)
 			count++
 		}
 	})
@@ -59,10 +94,3 @@ async function showProduct(){
 showProduct()
 getCategoryIndex()
 
-
-infoClick.addEventListener('click',()=>{
-	infoText.classList.remove('hide-component')
-})
-infoClose.addEventListener('click',()=>{
-	infoText.classList.add('hide-component')
-})

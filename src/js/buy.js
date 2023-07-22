@@ -1,6 +1,30 @@
 "use strict"
+import "../css/global.css"
+import "../css/header.css"
+import "../css/buy-cart.css"
+import "../css/footer.css"
+import "../css/change.css"
+
+import {localData,navGlobal} from "./module/global"
+import {buy,shop,body} from "./module/selector"
+import {getCategory,complete,navHeader} from './module/header'
+import {loginModule} from './module/login'
+
+//global
+localData()
+navGlobal()
+
+// header
+navHeader()
+getCategory()
+complete()
+
+//login
+loginModule()
+
+//buy
 function loadCard(){
-  contentItemsCartShop.innerText = ''
+  buy.contentItemsCartShop.innerText = ''
   const cardBuy = Object.values(localData().cartShop)
   cardBuy.forEach(element =>{
     console.log(element)
@@ -48,7 +72,7 @@ function loadCard(){
     divLeft.append(input,pLeft)
 
     article.append(divRight,divLeft)
-    contentItemsCartShop.appendChild(article)
+    buy.contentItemsCartShop.appendChild(article)
     input.addEventListener('change',()=>{
       if(input.value <= 0){
         input.value = 1
@@ -57,14 +81,14 @@ function loadCard(){
       total()
     })
   })
-  if(contentItemsCartShop.innerHTML === ''){
+  if(buy.contentItemsCartShop.innerHTML === ''){
     const div = document.createElement('div')
     div.classList.add('cart-void')
     div.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
     <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
   </svg>
   <p class='cart-void'>empty shopping cart</p>`
-    contentItemsCartShop.appendChild(div)
+    buy.contentItemsCartShop.appendChild(div)
   }
   total()
 }
@@ -79,15 +103,15 @@ function total(){
   let discountCount = 0.00
   let Shipping = 0.00
 
-  taxSpan.textContent = tax
-  price.textContent = `$ ${priceSub}`
-  shippingCost.textContent = Shipping
-  discount.textContent = discountCount
-  totalSpan.textContent = (Number(tax) + Number(priceSub)+ Number(discountCount)+ Number(Shipping)).toFixed(2)
+  buy.taxSpan.textContent = tax
+  buy.price.textContent = `$ ${priceSub}`
+  buy.shippingCost.textContent = Shipping
+  buy.discount.textContent = discountCount
+  buy.totalSpan.textContent = (Number(tax) + Number(priceSub)+ Number(discountCount)+ Number(Shipping)).toFixed(2)
 }
 loadCard()
 
-contendButtom__buy.addEventListener('click', ()=>{
-  containerEnd_proyect.classList.remove('inactive')
+buy.contendButtom__buy.addEventListener('click', ()=>{
+  shop.containerEnd_proyect.classList.remove('inactive')
   body.classList.add('overflow-hide')
 })
