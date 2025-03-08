@@ -2,6 +2,7 @@
 proyecto de tienda online aplicando lo aprendido 
 
 # npm install axios -D
+--> llamado de la API
 # npm install webpack -D
 # npm install webpack-cli -D
 # npm install html-loader -D

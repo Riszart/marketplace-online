@@ -5,7 +5,7 @@ import "../css/header.css"
 import "../css/main-shop.css"
 import "../css/footer.css"
 import "../css/change.css"
-
+import "../css/responsive.css"
 import {getCategory,complete,navHeader} from './module/header'
 import {getAll,navGlobal,localData,goProductDetail,countItems} from './module/global'
 import {user,shop,index} from './module/selector'

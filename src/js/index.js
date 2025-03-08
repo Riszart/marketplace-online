@@ -5,9 +5,10 @@ import "../css/header.css"
 import "../css/main.css"
 import "../css/footer.css"
 import "../css/change.css"
+import "../css/responsive.css"
 import {dataMark} from './module/data'
 import {index,info,user} from './module/selector'
-import {getAll,countItems,navGlobal,localData} from './module/global'
+import {getAll,countItems,navGlobal,localData,goProductDetail} from './module/global'
 import {getCategory,complete,navHeader} from './module/header'
 import {loginModule} from './module/login'
 

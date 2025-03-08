@@ -4,6 +4,7 @@ import "../css/header.css"
 import "../css/buy-cart.css"
 import "../css/footer.css"
 import "../css/change.css"
+import "../css/responsive.css"
 
 import {localData,navGlobal} from "./module/global"
 import {buy,shop,body} from "./module/selector"

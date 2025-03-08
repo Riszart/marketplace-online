@@ -37,8 +37,8 @@ module.exports = {
       },
       {
         test:/\.css$/,
-        // use:['style-loader', 'css-loader'], //development
-        use:[MiniCssExtractPlugin.loader, 'css-loader'], //production
+        use:['style-loader', 'css-loader'], //development
+        // use:[MiniCssExtractPlugin.loader, 'css-loader'], //production
       },
       {
         test:/\.(png|jpg|webp)/,

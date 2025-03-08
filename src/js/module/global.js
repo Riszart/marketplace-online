@@ -38,6 +38,7 @@ export function navGlobal(){
   })
 
   index.logoPrincipal.addEventListener('click', ()=>{
+    window.open(`https://riszart.github.io/marketplace-online/dist/index.html`,'_self')
     window.open(`${location.origin}/index.html`,'_self')
   })
 }

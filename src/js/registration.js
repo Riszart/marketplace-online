@@ -4,6 +4,7 @@ import "../css/header.css"
 import "../css/footer.css"
 import "../css/registration.css"
 import "../css/change.css"
+import "../css/responsive.css"
 import {registration} from './module/selector'
 import {getCategory,complete,navHeader} from './module/header'
 import {navGlobal,localData} from './module/global'

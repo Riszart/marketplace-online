@@ -1,0 +1,26 @@
+
+@media ( max-width: 700px ){
+  .navigation {
+    display: none;
+  }
+  main{
+    width: 100wv;
+    overflow: hidden;
+  }
+  .conatiner-user{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .container-menu__left{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .more{
+    position: fixed;
+    top: 50px;
+    background: #fde7a5;
+    z-index: 10;
+    right: 0px;
+    padding: 10px;
+  }
+}

@@ -3,6 +3,7 @@ import "../css/header.css"
 import "../css/item.css"
 import "../css/footer.css"
 import "../css/change.css"
+import "../css/responsive.css"
 
 import {getCategory,complete,navHeader} from './module/header'
 import {getAll,navGlobal,sectionProduct,localData} from './module/global'

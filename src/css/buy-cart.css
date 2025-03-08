@@ -152,3 +152,19 @@ input[type="number"] {
   text-transform: lowercase;
   font-weight: 700;
 }
+@media (max-width:700px){
+  .container-cart__buy{
+    margin: 5px;
+    padding: 0;
+  }
+  .grid-contend{
+    display: block;
+  }
+  .contend-buttom__buy{
+    margin-bottom: 50px;
+  }
+  .contend-buttom__buy button{
+    position: absolute;
+    right: calc(50vw - 80px);
+  }
+}
